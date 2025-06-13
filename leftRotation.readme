@@ -1,0 +1,99 @@
+# Left Rotation Array
+
+## Problem Description
+Perform a left rotation operation on an array where elements are shifted left by `d` positions. Elements that fall off the left end wrap around to the right end.
+
+## Solution Overview
+The solution uses modular arithmetic to calculate new positions for each element after rotation, creating a new array with elements placed at their rotated positions.
+
+## Data Structure Used
+- **List/Vector**: Input as `List<Integer>`, output as `Vector<Integer>`
+- **ArrayList**: Used for dynamic array operations
+
+## Why This Data Structure is Efficient
+1. **Random Access**: O(1) access to any element by index
+2. **Fixed Size**: Vector pre-allocates space for optimal memory usage
+3. **Index-Based Operations**: Perfect for position calculations using modular arithmetic
+4. **Memory Contiguous**: Better cache performance compared to linked structures
+
+## Algorithm Approach
+1. Handle edge cases (empty array or zero rotations)
+2. Normalize rotation count using modulo operation (`d = d % n`)
+3. Create result vector with pre-allocated size
+4. For each element, calculate its new position using formula: `(i + n - d) % n`
+5. Place each element at its calculated new position
+6. Return the rotated array
+
+## Time Complexity
+- **Time Complexity**: O(n) - Single pass through the array
+- **Space Complexity**: O(n) - Creates a new array of the same size
+
+## Mathematical Foundation
+**Position Mapping Formula**: `newIndex = (i + n - d) % n`
+
+Where:
+- `i`: current element index
+- `n`: array size
+- `d`: rotation count (normalized)
+- `newIndex`: element's position after rotation
+
+**Example**: Array [1,2,3,4,5], d=2
+- Element at index 0 → new position: (0 + 5 - 2) % 5 = 3
+- Element at index 1 → new position: (1 + 5 - 2) % 5 = 4
+- Result: [3,4,5,1,2]
+
+## Code Structure
+```java
+public static List<Integer> rotateLeft(int d, List<Integer> arr) {
+    int n = arr.size();
+    
+    // Handle edge cases
+    if (n == 0 || d == 0) {
+        return new Vector<>(arr);
+    }
+    
+    // Normalize rotation count
+    d = d % n;
+    
+    // Create result vector with pre-allocated size
+    Vector<Integer> result = new Vector<>(n);
+    for (int i = 0; i < n; i++) {
+        result.add(0); // Initialize slots
+    }
+    
+    // Map elements to new positions
+    for (int i = 0; i < n; i++) {
+        int newIndex = (i + n - d) % n;
+        result.set(newIndex, arr.get(i));
+    }
+    
+    return result;
+}
+```
+
+## Comparison with Alternative Approaches
+| Approach | Time | Space | Description |
+|----------|------|-------|-------------|
+| Current Solution | O(n) | O(n) | Index mapping |
+| Reverse Method | O(n) | O(1) | Three reverse operations |
+| Cyclic Replacement | O(n) | O(1) | In-place swapping |
+| Temporary Array | O(n) | O(n) | Copy and reconstruct |
+
+## Key Features
+- **Edge Case Handling**: Manages empty arrays and zero rotations
+- **Rotation Normalization**: Uses modulo to handle rotations larger than array size
+- **Pre-allocation**: Initializes result vector for better performance
+- **Mathematical Precision**: Uses proven formula for position calculation
+
+## Optimization Notes
+1. **Modulo Operation**: `d % n` prevents unnecessary full rotations
+2. **Vector Pre-sizing**: Avoids dynamic resizing during element insertion
+3. **Single Pass**: Processes each element exactly once
+4. **Memory Layout**: Vector provides better cache locality than ArrayList
+
+## Use Cases
+- Array/string rotation problems
+- Circular buffer implementations
+- Data shifting operations
+- Cyclic permutation algorithms
+- Time series data manipulation
