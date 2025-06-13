@@ -43,7 +43,7 @@ Where:
 - Result: [3,4,5,1,2]
 
 ## Code Structure
-```java
+
 public static List<Integer> rotateLeft(int d, List<Integer> arr) {
     int n = arr.size();
     
@@ -69,7 +69,7 @@ public static List<Integer> rotateLeft(int d, List<Integer> arr) {
     
     return result;
 }
-```
+
 
 ## Comparison with Alternative Approaches
 | Approach | Time | Space | Description |
