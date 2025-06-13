@@ -1,0 +1,65 @@
+# Insert Node at Head (Singly Linked List)
+
+## Problem Description
+Insert a new node with given data at the beginning (head) of a singly linked list and return the new head of the list.
+
+## Solution Overview
+The solution creates a new node, sets its next pointer to the current head, and returns the new node as the new head of the list.
+
+## Data Structure Used
+- **Singly Linked List**: A linear data structure where each node contains data and a reference to the next node
+- **Node Structure**: 
+ 
+  SinglyLinkedListNode {
+      int data;
+      SinglyLinkedListNode next;
+  }
+
+
+## Why This Data Structure is Efficient
+1. **Constant Time Insertion**: Inserting at the head requires O(1) time regardless of list size
+2. **Memory Efficient**: Only allocates memory for the new node
+3. **Pointer Manipulation**: Uses simple pointer reassignment instead of shifting elements
+4. **Dynamic Size**: Can grow without pre-allocating memory
+
+## Algorithm Approach
+1. Create a new node with the given data
+2. Set the new node's `next` pointer to the current head
+3. Return the new node as the new head
+
+## Time Complexity
+- **Time Complexity**: O(1) - Constant time operation
+- **Space Complexity**: O(1) - Only creates one new node
+
+## Comparison with Other Data Structures
+| Data Structure | Head Insertion Time | Memory Usage |
+|----------------|-------------------|--------------|
+| Singly Linked List | O(1) | Optimal |
+| Array/ArrayList | O(n) | Higher (shifting required) |
+| Dynamic Array | O(n) | Higher (potential reallocation) |
+
+## Code Structure
+
+static SinglyLinkedListNode insertNodeAtHead(SinglyLinkedListNode llist, int data) {
+    // Create new node with given data
+    SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
+    
+    // Set new node's next to current head
+    newNode.next = llist;
+    
+    // Return new node as new head
+    return newNode;
+}
+
+
+## Key Features
+- **Simplicity**: Minimal code required for the operation
+- **Efficiency**: Optimal time complexity for head insertion
+- **Handles Edge Cases**: Works correctly even when the list is empty (llist is null)
+- **Immutable Input**: Doesn't modify the original head reference, returns new head
+
+## Use Cases
+- Building lists by prepending elements
+- Implementing stack operations (LIFO)
+- Constructing lists where insertion order doesn't matter
+- Scenarios requiring frequent head insertions
