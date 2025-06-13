@@ -1,0 +1,57 @@
+# Hourglass Sum
+
+## Problem Description
+Calculate the maximum sum of all possible hourglass patterns in a 6x6 2D array. An hourglass pattern consists of 7 elements arranged in the following shape:
+
+a b c
+  d
+e f g
+
+
+## Solution Overview
+The solution uses a nested loop approach to iterate through all possible hourglass positions in the 6x6 array and calculates the sum for each hourglass pattern.
+
+## Data Structure Used
+- **2D List (List<List<Integer>>)**: Represents the 6x6 grid
+- **Integer variables**: Store current hourglass sum and maximum sum
+
+## Why This Data Structure is Efficient
+1. **Direct Access**: 2D List provides O(1) random access to any element using indices
+2. **Memory Efficient**: Stores only the necessary data without extra overhead
+3. **Natural Representation**: Mirrors the problem's 2D grid structure naturally
+
+## Algorithm Approach
+1. Initialize `maxVal` to `Integer.MIN_VALUE` to handle negative sums
+2. Use nested loops to iterate through all valid hourglass top-left positions
+3. For each position (i,j), calculate the hourglass sum by accessing 7 specific elements
+4. Update maximum sum if current hourglass sum is larger
+5. Return the maximum sum found
+
+## Time Complexity
+- **Time Complexity**: O(1) - Since we're working with a fixed 6x6 array, we always perform exactly 4x4 = 16 iterations
+- **Space Complexity**: O(1) - Only using a few variables for computation
+
+## Code Structure
+
+public static int hourglassSum(List<List<Integer>> arr) {
+    int maxVal = Integer.MIN_VALUE;
+    
+    // Iterate through all possible hourglass positions
+    for (int i = 0; i <= arr.size() - 3; i++) {
+        for (int j = 0; j <= arr.get(0).size() - 3; j++) {
+            // Calculate hourglass sum
+            int hrSum = arr.get(i).get(j) + arr.get(i).get(j+1) + arr.get(i).get(j+2) +
+                        arr.get(i+1).get(j+1) +
+                        arr.get(i+2).get(j) + arr.get(i+2).get(j+1) + arr.get(i+2).get(j+2);
+            maxVal = Math.max(maxVal, hrSum);
+        }
+    }
+    return maxVal;
+}
+
+
+## Key Features
+- Handles negative numbers correctly by using `Integer.MIN_VALUE`
+- Efficiently accesses array elements without bounds checking issues
+- Clean, readable code structure
+- Optimal solution for the fixed-size constraint
