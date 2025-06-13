@@ -1,0 +1,71 @@
+# Reverse Array
+
+## Problem Description
+Reverse the order of elements in an array, returning a new array with elements in opposite order from the original.
+
+## Solution Overview
+The solution creates a copy of the input array and uses Java's built-in `Collections.reverse()` method to reverse the order of elements efficiently.
+
+## Data Structure Used
+- **ArrayList**: Dynamic array implementation providing resizable array functionality
+- **List Interface**: Allows flexibility in implementation choice
+
+## Why This Data Structure is Efficient
+1. **Random Access**: O(1) access to elements by index for efficient swapping
+2. **Contiguous Memory**: Better cache performance during reversal operations
+3. **Built-in Optimization**: `Collections.reverse()` uses optimized swapping algorithm
+4. **Dynamic Sizing**: No need to pre-determine array size
+
+## Algorithm Approach (Collections.reverse internally)
+1. Create a copy of the input list to avoid modifying original
+2. Use two pointers approach:
+   - Start pointer at beginning (index 0)
+   - End pointer at end (index n-1)
+3. Swap elements at start and end positions
+4. Move pointers toward center (start++, end--)
+5. Continue until pointers meet or cross
+6. Return reversed array
+
+## Time Complexity
+- **Time Complexity**: O(n) - Each element is accessed and swapped once
+
+
+## Comparison with Alternative Approaches
+| Approach | Time | Space | In-Place | Description |
+|----------|------|-------|----------|-------------|
+| Collections.reverse() | O(n) | O(n) | No | Current implementation |
+| Manual Two-Pointer | O(n) | O(1) | Yes | Custom swap implementation |
+| Stack-Based | O(n) | O(n) | No | Push all, then pop |
+| Recursion | O(n) | O(n) | No | Recursive swapping |
+
+## Code Structure
+
+public static List<Integer> reverseArray(List<Integer> a) {
+    // Create a copy of the input list
+    List<Integer> result = new ArrayList<>(a);
+    
+    // Reverse the copy using built-in method
+    Collections.reverse(result);
+    
+    return result;
+}
+
+## Key Features
+- **Immutability**: Original array remains unchanged
+- **Reliability**: Uses well-tested library method
+- **Readability**: Clear, concise implementation
+- **Performance**: Optimized swapping algorithm
+
+
+## Edge Cases Handled
+1. **Empty Array**: Returns empty array
+2. **Single Element**: Returns array with same element
+3. **Two Elements**: Swaps the two elements
+4. **Null Input**: Would throw NullPointerException (consider adding null check)
+
+
+##  Notes
+- `Collections.reverse()` is highly optimized
+- ArrayList provides O(1) random access crucial for efficient swapping
+- Copy constructor `new ArrayList<>(a)` is efficient for cloning
+- Built-in method handles edge cases automatically
