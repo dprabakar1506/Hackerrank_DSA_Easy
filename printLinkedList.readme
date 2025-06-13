@@ -1,0 +1,111 @@
+# Print Linked List
+
+## Problem Description
+Traverse and print all elements of a singly linked list, with each element printed on a separate line.
+
+## Solution Overview
+The solution uses iterative traversal starting from the head node, printing each node's data and moving to the next node until reaching the end of the list.
+
+## Data Structure Used
+- **Singly Linked List**: A linear data structure where each node contains data and a reference to the next node
+- **Node Structure**: 
+
+  SinglyLinkedListNode {
+      int data;
+      SinglyLinkedListNode next;
+  }
+  
+
+## Why This Data Structure is Efficient
+1. **Sequential Access**: Perfect for operations that process elements in order
+2. **Memory Efficient**: No additional memory needed for traversal
+3. **Simple Iteration**: Natural pointer-following pattern
+4. **Cache Friendly**: Sequential access pattern optimizes cache usage
+
+## Algorithm Approach
+1. Initialize current pointer to head of the list
+2. While current is not null:
+   - Print current node's data
+   - Move current to the next node
+3. Continue until reaching the end (null)
+
+## Time Complexity
+- **Time Complexity**: O(n) - Must visit each node exactly once
+- **Space Complexity**: O(1) - Only uses one pointer variable
+
+## Comparison with Alternative Approaches
+| Approach | Time | Space | Stack Usage | Description |
+|----------|------|-------|-------------|-------------|
+| Iterative (Current) | O(n) | O(1) | O(1) | Loop-based traversal |
+| Recursive | O(n) | O(n) | O(n) | Function call stack |
+| Array Conversion | O(n) | O(n) | O(1) | Convert to array first |
+
+## Code Structure
+
+static void printLinkedList(SinglyLinkedListNode head) {
+    // Start at the head of the list
+    SinglyLinkedListNode current = head;
+    
+    // Traverse until the end (null)
+    while (current != null) {
+        // Print current node's data
+        System.out.println(current.data);
+        // Move to the next node
+        current = current.next;
+    }
+}
+
+
+## Key Features
+- **Null Safety**: Handles empty lists gracefully (head == null)
+- **Memory Efficient**: Uses constant extra space
+- **Simple Logic**: Easy to understand and maintain
+- **Iterative Approach**: Avoids stack overflow for large lists
+
+## Edge Cases Handled
+1. **Empty List**: When head is null, the while loop doesn't execute
+2. **Single Node**: Prints one element and terminates
+3. **Large Lists**: No stack overflow risk unlike recursive approach
+
+## Performance Characteristics
+**Advantages:**
+- Minimal memory footprint
+- No function call overhead
+- Predictable performance
+- No stack overflow risk
+
+**Limitations:**
+- Sequential access only
+- Cannot print in reverse without additional data structures
+- Requires traversal from beginning each time
+
+## Alternative Implementations
+
+### Recursive Approach
+
+static void printLinkedListRecursive(SinglyLinkedListNode head) {
+    if (head != null) {
+        System.out.println(head.data);
+        printLinkedListRecursive(head.next);
+    }
+}
+
+**Trade-off**: Uses O(n) stack space
+
+### Enhanced Error Handling
+
+static void printLinkedListSafe(SinglyLinkedListNode head) {
+    if (head == null) {
+        System.out.println("List is empty");
+        return;
+    }
+    // ... rest of implementation
+}
+
+
+## Use Cases
+- Debugging linked list contents
+- List validation and verification
+- Data export operations
+- Educational demonstrations
+- Diagnostic output for algorithms
