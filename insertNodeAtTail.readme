@@ -1,0 +1,96 @@
+# Insert Node at Tail (Singly Linked List)
+
+## Problem Description
+Insert a new node with given data at the end (tail) of a singly linked list and return the head of the modified list.
+
+## Solution Overview
+The solution traverses the entire list to find the last node, creates a new node, and links it at the end. Special handling is provided for empty lists.
+
+## Data Structure Used
+- **Singly Linked List**: A linear data structure where each node contains data and a reference to the next node
+- **Node Structure**: 
+
+  SinglyLinkedListNode {
+      int data;
+      SinglyLinkedListNode next;
+  }
+
+
+## Why This Data Structure is Efficient
+1. Dynamic Growth: Can extend the list without pre-allocating memory
+2. Memory Efficient: Only allocates memory for the new node
+3. Maintains Order: Preserves the original sequence of elements
+4. Simple Structure: Straightforward pointer manipulation
+
+## Algorithm Approach
+1. Create a new node with the given data
+2. Handle edge case: if the list is empty, return the new node as head
+3. Traverse the list to find the last node (where `next` is null)
+4. Link the new node to the last node's `next` pointer
+5. Return the original head
+
+## Time Complexity
+- Time Complexity: O(n) - Must traverse the entire list to reach the tail
+- Space Complexity: O(1) - Only creates one new node
+
+## Comparison with Other Data Structures
+| Data Structure | Tail Insertion Time | Memory Usage | Traversal Required |
+|----------------|-------------------|--------------|-------------------|
+| Singly Linked List | O(n) | Optimal | Yes |
+| Doubly Linked List | O(1)* | Higher | No (with tail pointer) |
+| ArrayList | O(1) amortized | Higher | No |
+| Array | O(1) | Fixed | No |
+
+Requires maintaining a tail pointer
+
+## Code Structure
+
+static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {
+    // Create new node with given data
+    SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
+    
+    // If list is empty, new node becomes head
+    if (head == null) {
+        return newNode;
+    }
+    
+    // Traverse to the last node
+    SinglyLinkedListNode current = head;
+    while (current.next != null) {
+        current = current.next;
+    }
+    
+    // Link new node at the tail
+    current.next = newNode;
+    
+    // Return original head
+    return head;
+}
+
+
+## Key Features
+- **Edge Case Handling**: Properly handles empty list scenario
+- **Preserves Structure**: Maintains the original list structure and order
+- **Safe Traversal**: Uses null-checking to avoid runtime errors
+- **Memory Efficient**: Only allocates what's needed
+
+## Trade-offs
+**Advantages:**
+- Simple implementation
+- Memory efficient
+- Preserves insertion order
+
+**Disadvantages:**
+- O(n) time complexity for tail insertion
+- Requires full list traversal
+
+## Optimization Possibilities
+- **Doubly Linked List**: Use doubly linked list with tail pointer for O(1) insertion
+- **Tail Pointer**: Maintain a separate tail reference for O(1) tail operations
+- **Circular Linked List**: Use circular structure for easier tail access
+
+## Use Cases
+- Building ordered sequences
+- Implementing queue operations (FIFO)
+- Maintaining chronological data
+- Scenarios where insertion order matters
