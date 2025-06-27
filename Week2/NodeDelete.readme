@@ -1,0 +1,34 @@
+Delete Node at Position
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Problem Description
+------------------------
+Delete a node at a specific position from a singly linked list and return the updated list.
+
+Solution Overview
+-------------------
+Handles two cases: deleting the head node (position 0) and deleting any other node by traversing to the position and updating links.
+
+Data Structure Used
+--------------------
+Singly Linked List: Linear structure with nodes containing data and next pointer
+Node Traversal: Pointer manipulation for position-based access
+Link Adjustment: Reference updating for node removal
+Why This Data Structure is Efficient
+Direct Manipulation: Modifies links without shifting elements
+Memory Efficient: Only deallocates the target node
+Constant Operations: Each link update is O(1)
+Preserves Structure: Maintains list integrity after deletion
+
+Algorithm Approach
+---------------------
+Special case: If position is 0, return head.next as new head
+Traverse to the node before the target position (position - 1)
+Update the previous node's next pointer to skip the target node
+Target node becomes unreachable and eligible for garbage collection
+Return the original head (unchanged for non-zero positions)
+
+Time Complexity
+-------------------
+Time Complexity: O(n) - Where n is the position of the node to delete
+Space Complexity: O(1) - Only uses pointer variables
+
