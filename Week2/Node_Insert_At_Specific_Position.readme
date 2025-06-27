@@ -1,1 +1,35 @@
+Insert Node at Specific Position (Linked List)
+----------------------------------------------------
 
+Problem Description
+----------------------------
+Insert a new node with given data at a specific position in a singly linked list. The position is 0-indexed, where position 0 means inserting at the head of the list.
+
+Solution Overview
+------------------------
+Traverses the linked list to the specified position and inserts a new node by adjusting the next pointers of the previous node and the new node.
+
+Data Structure Used
+----------------------
+Singly Linked List: Linear data structure with nodes containing data and next pointer
+Node: Basic unit storing integer data and reference to next node
+
+Why This Data Structure is Efficient
+------------------------------------------
+Dynamic Insertion: Allows insertion at any position without shifting elements
+Memory Efficient: Only allocates memory for new nodes when needed
+Flexible Size: Can grow dynamically during runtime
+Simple Structure: Easy to implement and understand
+
+Algorithm Approach
+---------------------
+Handle edge case: insertion at position 0 (head)
+Traverse to position-1 to find the node before insertion point
+Create new node with given data
+Adjust pointers: new node points to current node at position
+Previous node points to new node
+
+Time Complexity
+----------------------
+Time Complexity: O(n) - Where n is the position of insertion
+Space Complexity: O(1) - Only creates one new node
