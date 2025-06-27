@@ -1,0 +1,39 @@
+Reverse Linked List
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Problem Description
+------------------------
+Reverse a singly linked list by changing the direction of next pointers, returning the new head of the reversed list.
+
+Solution Overview
+--------------------
+Uses iterative approach with three pointers to reverse the links between nodes. Traverses the list once while reversing the direction of each link.
+
+Data Structure Used
+-------------------------
+Singly Linked List: Linear data structure with nodes containing data and next pointer
+Three Pointers: prev, current, and next for link manipulation
+
+Why This Data Structure is Efficient
+-----------------------------------------
+In-place Reversal: No extra space needed for new nodes
+Pointer Manipulation: Efficient O(1) operations for each link reversal
+Single Pass: Completes reversal in one traversal
+Optimal Space: Uses only constant extra space
+
+Algorithm Approach
+-----------------------
+Initialize three pointers: prev = null, current = head, next = null
+While current is not null:
+
+Store next node: next = current.next
+Reverse current link: current.next = prev
+Move pointers forward: prev = current, current = next
+
+
+Return prev as the new head (current becomes null)
+
+Time Complexity
+------------------
+
+Time Complexity: O(n) - Single traversal of the list
+Space Complexity: O(1) - Only uses three pointer variables
