@@ -1,0 +1,34 @@
+Compare Two Linked Lists
+-------------------------
+Problem Description
+-----------------------
+Compare two singly linked lists to determine if they are identical in both structure and data values.
+
+Solution Overview
+-------------------
+Iterates through both linked lists simultaneously, comparing data at each position and checking if both lists end at the same time.
+
+Data Structure Used
+---------------------
+Singly Linked List: Linear data structure with nodes containing data and next pointer
+Node: Basic unit storing integer data and reference to next node
+
+Why This Data Structure is Efficient
+---------------------------------------
+Memory Efficient: Only stores necessary data and one pointer per node
+Sequential Access: Natural for element-by-element comparison
+Simple Structure: Straightforward traversal and comparison logic
+Dynamic Size: Handles lists of any length
+
+Algorithm Approach
+-------------------
+Traverse both lists simultaneously using two pointers
+Compare data values at each corresponding position
+Check if one list ends before the other
+Return false if any mismatch found, true if both lists are identical
+
+Time Complexity
+----------------
+Time Complexity: O(min(m,n)) - Where m and n are lengths of the two lists
+Space Complexity: O(1) - Only uses pointer variables
+
