@@ -1,0 +1,34 @@
+Reverse Print Linked List
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Problem Description
+--------------------
+Print the elements of a singly linked list in reverse order without modifying the original list structure.
+
+Solution Overview
+---------------------
+Uses a stack to store node values while traversing the list forward, then pops values from the stack to print in reverse order.
+
+Data Structure Used
+---------------------
+Singly Linked List: Linear data structure with nodes containing data and next pointer
+Stack: LIFO structure to reverse the order of elements
+
+Why This Data Structure is Efficient
+-----------------------------------------
+Stack Properties: LIFO nature naturally reverses the order
+Non-destructive: Original list remains unchanged
+Memory Efficient: Only stores data values, not entire nodes
+Simple Implementation: Straightforward two-pass approach
+
+Algorithm Approach
+---------------------
+Initialize an empty stack
+Traverse the linked list from head to tail
+Push each node's data onto the stack
+Pop values from stack and print them (automatically in reverse order)
+Continue until stack is empty
+
+Time Complexity
+------------------
+Time Complexity: O(n) - Single traversal plus stack operations
+Space Complexity: O(n) - Stack stores all n elements
