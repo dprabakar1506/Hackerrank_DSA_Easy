@@ -1,0 +1,35 @@
+Dynamic Array
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Problem Description
+--------------------
+Implement a dynamic array structure that supports two types of queries: appending elements and retrieving elements using XOR-based indexing.
+
+Solution Overview
+----------------------
+Use a list of lists to create n sequences, process queries with XOR-based index calculation, and maintain a lastAnswer variable for subsequent operations.
+
+Data Structure Used
+--------------------------
+List of Lists: ArrayList containing n empty ArrayLists as sequences
+Dynamic Arrays: Each sequence can grow dynamically
+Result List: Stores answers from type 2 queries
+Why This Data Structure is Efficient
+Dynamic Sizing: Sequences grow as needed without pre-allocation
+Random Access: O(1) access to any sequence by index
+Flexible Storage: Each sequence can have different lengths
+Memory Efficient: Only allocates space when elements are added
+
+Algorithm Approach
+--------------------
+Create n empty sequences using ArrayList of ArrayLists
+For each query, calculate index using formula: (x XOR lastAnswer) % n
+Type 1 query: Append y to sequence at calculated index
+Type 2 query: Retrieve element and update lastAnswer
+Store all type 2 query results for final output
+
+Time Complexity
+------------------
+Time Complexity: O(q) - Where q is the number of queries
+Space Complexity: O(n + total elements) - n sequences plus all stored elements
+
+
