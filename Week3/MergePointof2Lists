@@ -1,0 +1,86 @@
+import java.io.*;
+import java.util.*;
+
+class SinglyLinkedListNode {
+    int data;
+    SinglyLinkedListNode next;
+
+    SinglyLinkedListNode(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class SinglyLinkedList {
+    SinglyLinkedListNode head;
+    SinglyLinkedListNode tail;
+
+    SinglyLinkedList() {
+        this.head = null;
+        this.tail = null;
+    }
+
+    public void insertNode(int data) {
+        SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
+        if (this.head == null) {
+            this.head = newNode;
+        } else {
+            this.tail.next = newNode;
+        }
+        this.tail = newNode;
+    }
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int tests = scanner.nextInt();
+
+        for (int t = 0; t < tests; t++) {
+            int index = scanner.nextInt();
+
+            SinglyLinkedList list1 = new SinglyLinkedList();
+            int list1Count = scanner.nextInt();
+            for (int i = 0; i < list1Count; i++) {
+                int data = scanner.nextInt();
+                list1.insertNode(data);
+            }
+
+            SinglyLinkedList list2 = new SinglyLinkedList();
+            int list2Count = scanner.nextInt();
+            for (int i = 0; i < list2Count; i++) {
+                int data = scanner.nextInt();
+                list2.insertNode(data);
+            }
+
+            // Get reference to the merge point in list1
+            SinglyLinkedListNode mergeNode = list1.head;
+            for (int i = 0; i < index; i++) {
+                mergeNode = mergeNode.next;
+            }
+
+            // Attach merge node to end of list2
+            if (list2.tail != null) {
+                list2.tail.next = mergeNode;
+            }
+
+            int result = findMergeNode(list1.head, list2.head);
+            System.out.println(result);
+        }
+
+        scanner.close();
+    }
+
+    public static int findMergeNode(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+        SinglyLinkedListNode ptr1 = head1;
+        SinglyLinkedListNode ptr2 = head2;
+
+        while (ptr1 != ptr2) {
+            ptr1 = (ptr1 == null) ? head2 : ptr1.next;
+            ptr2 = (ptr2 == null) ? head1 : ptr2.next;
+        }
+
+        return ptr1.data;
+    }
+}
