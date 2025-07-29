@@ -1,0 +1,262 @@
+Week 5 - Java Programming Readme
+---------------------------------
+1. BST Insertion (BST_Insertion.java)
+--------------------------------------
+
+Problem Description
+--------------------
+Insert nodes into a Binary Search Tree while maintaining BST property, then print the tree in pre-order.
+
+Solution Overview
+--------------------
+We use recursive insertion to find the correct position for each new node, maintaining the BST ordering property.
+
+Data Structure Used
+--------------------
+Binary Search Tree: Hierarchical structure with ordering property
+Recursive Insertion: Navigate tree using recursive calls
+Node Creation: Create new nodes for insertion
+
+Why This Data Structure is Efficient
+----------------------------------------
+Ordered Structure: BST maintains sorted order automatically
+Logarithmic Operations: Average O(log n) insertion time
+Natural Recursion: Tree structure suits recursive algorithms
+
+Algorithm Approach
+--------------------
+If tree is empty, create new node as root
+Compare new data with current node
+If data ≤ current, insert in left subtree
+If data > current, insert in right subtree
+Recursively call insert on appropriate subtree
+Return updated tree root
+
+Time Complexity: O(log n) average, O(n) worst case
+Space Complexity: O(log n) average recursion depth
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Height of Binary Tree (HeightOfBinaryTree.java)
+-----------------------------------------------------
+Problem Description
+--------------------
+Calculate the height of a binary tree (maximum depth from root to any leaf).
+
+Solution Overview
+--------------------
+We use recursive approach to find the maximum height among left and right subtrees, adding 1 for current level.
+
+Data Structure Used
+--------------------
+Binary Tree: Hierarchical structure with left and right children
+Recursive Height Calculation: Use recursion to find subtree heights
+Maximum Function: Compare left and right subtree heights
+
+Why This Data Structure is Efficient
+-------------------------------------
+Natural Recursion: Tree structure maps to recursive solution
+Optimal Substructure: Height depends on subtree heights
+Single Traversal: Visit each node exactly once
+
+Algorithm Approach
+--------------------
+If node is null, return -1 (empty tree height)
+Recursively calculate left subtree height
+Recursively calculate right subtree height
+Return 1 + maximum of left and right heights
+Base case handles leaf nodes correctly
+
+Time Complexity: O(n) - Visit each node once
+Space Complexity: O(h) - Recursion stack depth equals height
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Jesse and Cookies (Jesse&Cookies.java)
+------------------------------------------
+
+Problem Description
+--------------------
+Use a priority queue to combine cookies until all have sweetness ≥ k. Return minimum operations needed.
+
+Solution Overview
+--------------------
+We use a min-heap (priority queue) to always access the least sweet cookies and combine them efficiently.
+
+Data Structure Used
+--------------------
+Priority Queue (Min-Heap): Always get minimum element in O(log n)
+Greedy Algorithm: Always combine two least sweet cookies
+Operation Counting: Track number of combinations
+
+Why This Data Structure is Efficient
+ -------------------------------------
+Optimal Access: Min-heap gives smallest element instantly
+Efficient Updates: Insert and remove in O(log n) time
+Greedy Choice: Always optimal to combine least sweet cookies
+
+Algorithm Approach
+--------------------
+Create min-heap from all cookie sweetness values
+While heap has >1 element and minimum < k
+Remove two least sweet cookies
+Combine: first + 2 * second
+Insert combined cookie back into heap
+Increment operation counter
+Return operations if successful, -1 if impossible
+
+Time Complexity: O(n log n) - Heap operations
+Space Complexity: O(n) - Priority queue storage
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. Level Order Traversal (LevelOrderTraversal.java)
+----------------------------------------------------------
+
+Problem Description
+--------------------
+Traverse a binary tree level by level from left to right (breadth-first traversal).
+
+Solution Overview
+--------------------
+We use a queue to process nodes level by level, adding children to queue as we process each node.
+
+Data Structure Used
+--------------------
+Queue: FIFO structure for level-by-level processing
+Breadth-First Search: Process all nodes at current level before next level
+Node Processing: Print data and add children to queue
+
+Why This Data Structure is Efficient
+--------------------------------------
+Level-by-Level: Queue naturally handles level order
+FIFO Property: Ensures nodes processed in correct order
+Single Pass: Visit each node exactly once
+
+Algorithm Approach
+--------------------
+If tree is empty, return
+Add root to queue
+While queue is not empty
+Remove node from front of queue
+Print node's data
+Add left child to queue (if exists)
+Add right child to queue (if exists)
+Repeat until queue is empty
+
+Time Complexity: O(n) - Visit each node once
+Space Complexity: O(w) - Queue size equals maximum width
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5. Lowest Common Ancestor (LowestCommonAncestor.java)
+-------------------------------------------------------
+
+Problem Description
+--------------------
+Find the lowest common ancestor of two nodes in a Binary Search Tree.
+
+Solution Overview
+--------------------
+We use BST property to navigate directly to LCA without searching entire tree.
+
+Data Structure Used
+--------------------
+Binary Search Tree: Ordered structure enables efficient navigation
+BST Property: Use ordering to determine search direction
+Recursive Search: Navigate tree based on value comparisons
+
+Why This Data Structure is Efficient
+--------------------------------------
+BST Property: Ordering eliminates unnecessary subtree exploration
+Direct Navigation: Move directly toward LCA without extra searching
+Logarithmic Time: Average O(log n) performance
+
+Algorithm Approach
+--------------------
+If both values < current node, LCA is in left subtree
+If both values > current node, LCA is in right subtree
+Otherwise, current node is the LCA (split point)
+Use recursion to navigate to appropriate subtree
+Return LCA when split condition is met
+
+Time Complexity: O(log n) average, O(n) worst case
+Space Complexity: O(log n) recursion depth
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+6. QHeap (QHeap.java)
+-----------------------
+Problem Description
+---------------------
+Implement heap operations: insert element, delete element, and find minimum.
+
+Solution Overview
+--------------------
+We use TreeSet which maintains sorted order and allows efficient insertion, deletion, and minimum finding.
+
+Data Structure Used
+--------------------
+TreeSet: Self-balancing binary search tree with unique elements
+Sorted Structure: Automatically maintains sorted order
+Set Operations: Insert, remove, and find operations
+
+Why This Data Structure is Efficient
+-------------------------------------
+Balanced Tree: Guarantees O(log n) operations
+Sorted Order: first() method gives minimum in O(1)
+Unique Elements: Set property handles duplicates automatically
+
+Algorithm Approach
+--------------------
+For insert (type 1): Add element to TreeSet
+For delete (type 2): Remove element from TreeSet
+For minimum (type 3): Return first element from TreeSet
+TreeSet maintains sorted order automatically
+
+Time Complexity: O(log n) for insert/delete, O(1) for minimum
+Space Complexity: O(n) - TreeSet storage
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7. Top View of Tree (TopViewofTree.java)
+---------------------------------------------
+
+Problem Description
+--------------------
+Print the top view of a binary tree (nodes visible when looking from above).
+
+Solution Overview
+--------------------
+We use level-order traversal with horizontal distance tracking to identify the first node at each horizontal position.
+
+Data Structure Used
+--------------------
+TreeMap: Store horizontal distance to node value mapping (sorted)
+Queue: Level-order traversal of tree
+HashMap: Track horizontal distance for each node
+Coordinate System: Assign horizontal distances to nodes
+
+Why This Data Structure is Efficient
+--------------------------------------
+Sorted Output: TreeMap automatically sorts by horizontal distance
+First Occurrence: putIfAbsent ensures only first node at each distance
+Level Order: Queue ensures top-most nodes processed first
+
+Algorithm Approach
+--------------------
+Assign horizontal distance 0 to root
+Use level-order traversal with queue
+For each node, record first occurrence at its horizontal distance
+Left child gets distance (current - 1)
+Right child gets distance (current + 1)
+Print nodes in order of horizontal distance
+
+Time Complexity: O(n log n) - TreeMap operations
+Space Complexity: O(n) - Maps and queue storage
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Instructions to run code
+--------------------------
+
+bashjavac filename.java
+java Solution < input.txt
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
