@@ -1,0 +1,328 @@
+Week 3 - Java Programming Readme
+---------------------------------------
+Problems Solved
+------------------
+1. Delete Duplicates from Sorted Linked List (Deleteduplicates_Sorted_Linkedlist.java)
+-------------------------------------------------------------------------------------
+Problem Description
+--------------------
+Remove duplicate nodes from a sorted singly linked list, keeping only one occurrence of each value.
+
+Solution Overview
+-------------------
+We traverse the list once, comparing each node with its next node. When duplicates are found, we skip them by adjusting pointers.
+
+Data Structure Used
+---------------------
+Singly Linked List: Linear data structure with nodes containing data and next pointer
+Single Pointer Traversal: Use current pointer to check adjacent nodes
+In-place Modification: Remove duplicates without extra space
+
+Why This Data Structure is Efficient
+--------------------------------------------
+Single Pass: Only traverse the list once
+Constant Space: No additional memory needed beyond input
+Pointer Manipulation: Direct link adjustment for efficient removal
+
+Algorithm Approach
+---------------------
+Start with current pointer at head
+Compare current node data with next node data
+If equal, skip the duplicate by updating current.next
+If different, move current pointer forward
+Continue until end of list
+
+Time Complexity: O(n) - Visit each node once
+Space Complexity: O(1) - Only use pointer variables
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Get Node Value from Tail (Get_Node_Value.java)
+---------------------------------------------------
+Problem Description
+-------------------
+Find the value of a node at a given position from the tail of a singly linked list.
+
+Solution Overview
+-------------------
+We use the two-pointer technique where one pointer gets a head start, then both move together until the first reaches the end.
+
+Data Structure Used
+--------------------
+Two-Pointer Technique: Fast and slow pointers moving at same speed
+Gap Maintenance: Keep fixed distance between pointers
+Single Traversal: Find target in one pass without counting length
+
+Why This Data Structure is Efficient
+-------------------------------------
+No Length Calculation: Don't need to find list length first
+One Pass Solution: Solve in single traversal
+Optimal Space: Only use two pointer variables
+
+Algorithm Approach
+-------------------
+Move fast pointer ahead by positionFromTail steps
+Move both fast and slow pointers together
+When fast reaches end, slow is at target position
+Return slow pointer's data
+
+Time Complexity: O(n) - Traverse list once
+Space Complexity: O(1) - Only two pointers used
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. In-order Tree Traversal (InorderTraversal.java)
+----------------------------------------------------
+
+Problem Description
+--------------------
+Traverse a binary search tree in in-order fashion (left subtree, root, right subtree) and print node values.
+
+Solution Overview
+-------------------
+We use recursive approach to visit left subtree first, then current node, then right subtree.
+
+Data Structure Used
+--------------------
+Binary Search Tree: Hierarchical structure with left and right children
+Recursive Traversal: Function calls itself for subtrees
+Stack (Implicit): Recursion uses call stack for backtracking
+
+Why This Data Structure is Efficient
+--------------------------------------
+Natural Recursion: Tree structure maps perfectly to recursive calls
+Sorted Output: In-order traversal of BST gives sorted sequence
+Simple Implementation: Clean and readable recursive code
+
+Algorithm Approach
+-------------------
+If current node is null, return
+Recursively traverse left subtree
+Print current node's data
+Recursively traverse right subtree
+
+Time Complexity: O(n) - Visit each node exactly once
+Space Complexity: O(h) - Recursion stack depth equals tree height
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. Merge Two Sorted Linked Lists (Merge2SortedLists.java)
+----------------------------------------------------------
+
+Problem Description
+-------------------
+Merge two sorted linked lists into one sorted linked list, maintaining the sorted order.
+
+Solution Overview
+-------------------
+We use a dummy node to simplify edge cases and compare nodes from both lists, always picking the smaller one.
+
+Data Structure Used
+-------------------
+Dummy Node: Simplifies edge case handling for empty result
+Tail Pointer: Track end of merged list for efficient appending
+Two Input Pointers: Traverse both input lists simultaneously
+
+Why This Data Structure is Efficient
+-------------------------------------
+Single Pass: Visit each node exactly once
+No Extra Space: Reuse existing nodes, just rearrange pointers
+Clean Logic: Dummy node eliminates special cases
+
+Algorithm Approach
+-------------------
+Create dummy node to start merged list
+Compare heads of both lists
+Attach smaller node to merged list
+Move pointer of chosen list forward
+Repeat until one list is exhausted
+Attach remaining nodes from non-empty list
+
+Time Complexity: O(m + n) - Visit all nodes from both lists
+Space Complexity: O(1) - Only use pointer variables
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5. Find Merge Point of Two Lists (MergePointof2Lists.java)
+-------------------------------------------------------------
+
+Problem Description
+-------------------
+Find the node where two linked lists merge together (share the same tail portion).
+
+Solution Overview
+-------------------
+We use the two-pointer technique where pointers switch lists when they reach the end, guaranteeing they meet at the merge point.
+
+Data Structure Used
+-------------------
+Two-Pointer Technique: Pointers traverse both lists
+List Switching: When pointer reaches end, it starts from other list's head
+Cycle Detection Logic: Similar to finding intersection point
+
+Why This Data Structure is Efficient
+--------------------------------------
+No Length Calculation: Don't need to find lengths of lists
+Guaranteed Meeting: Pointers will meet at merge point or null
+Elegant Solution: Handles different list lengths automatically
+
+Algorithm Approach
+-------------------
+Start pointers at heads of both lists
+Move pointers forward one step at a time
+When pointer reaches end, switch it to other list's head
+Continue until pointers meet
+Meeting point is the merge node
+
+Time Complexity: O(m + n) - Each pointer traverses both lists once
+Space Complexity: O(1) - Only two pointer variables
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6. Insert Node into Sorted Doubly Linked List (NodeInsert_into_SortedDoublyLinkedList.java)
+---------------------------------------------------------------------------------------------
+
+Problem Description
+-------------------
+Insert a new node with given data into a sorted doubly linked list while maintaining the sorted order.
+
+Solution Overview
+-------------------
+We traverse the list to find the correct insertion position and handle all edge cases including empty list, insertion at beginning, middle, or end.
+
+Data Structure Used
+-------------------
+Doubly Linked List: Nodes have both next and previous pointers
+Bidirectional Links: Update both forward and backward connections
+Position Finding: Traverse to locate correct insertion point
+
+Why This Data Structure is Efficient
+--------------------------------------
+Bidirectional Navigation: Can move both forward and backward
+Efficient Insertion: Insert anywhere without starting from head
+Maintains Order: Preserves sorted property of list
+
+Algorithm Approach
+-------------------
+Handle empty list case
+Check if insertion should be before head
+Traverse to find correct position
+Insert before current position or at end
+Update all four pointer connections (prev/next for both nodes)
+
+Time Complexity: O(n) - May need to traverse entire list
+Space Complexity: O(1) - Only create one new node
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7. Post-order Tree Traversal (PostOrderTraversal.java)
+-------------------------------------------------------
+Problem Description
+--------------------
+Traverse a binary search tree in post-order fashion (left subtree, right subtree, root) and print node values.
+
+Solution Overview
+-------------------
+We use recursive approach to visit left subtree first, then right subtree, then current node.
+
+Data Structure Used
+-------------------
+Binary Search Tree: Hierarchical structure with ordered properties
+Recursive Traversal: Process subtrees before current node
+Stack (Implicit): Recursion uses call stack for state management
+
+Why This Data Structure is Efficient
+-------------------------------------
+Natural Recursion: Tree structure suits recursive processing
+Bottom-up Processing: Process children before parent
+Clean Implementation: Simple recursive pattern
+
+Algorithm Approach
+-------------------
+If current node is null, return
+Recursively traverse left subtree
+Recursively traverse right subtree
+Print current node's data
+
+Time Complexity: O(n) - Visit each node exactly once
+Space Complexity: O(h) - Recursion stack depth equals tree height
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8. Pre-order Tree Traversal (PreOrderTraversal.java)
+-------------------------------------------------------
+
+Problem Description
+--------------------
+Traverse a binary search tree in pre-order fashion (root, left subtree, right subtree) and print node values.
+
+Solution Overview
+-------------------
+We use recursive approach to visit current node first, then left subtree, then right subtree.
+
+Data Structure Used
+-------------------
+Binary Search Tree: Hierarchical structure with left/right children
+Recursive Traversal: Process current node before subtrees
+Stack (Implicit): Recursion manages traversal state
+
+Why This Data Structure is Efficient
+-------------------------------------
+Top-down Processing: Process parent before children
+Natural Tree Structure: Recursion matches tree hierarchy
+Simple Logic: Straightforward recursive pattern
+
+Algorithm Approach
+-------------------
+If current node is null, return
+Print current node's data
+Recursively traverse left subtree
+Recursively traverse right subtree
+
+Time Complexity: O(n) - Visit each node exactly once
+Space Complexity: O(h) - Recursion stack depth equals tree height
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9. Reverse Doubly Linked List (Reverse_DoublyLinkedList.java)
+--------------------------------------------------------------
+
+Problem Description
+-------------------
+Reverse a doubly linked list by changing the direction of all links.
+
+Solution Overview
+-------------------
+We traverse the list and swap the next and prev pointers for each node, then update the head to point to the last processed node.
+
+Data Structure Used
+-------------------
+Doubly Linked List: Nodes with both next and previous pointers
+Pointer Swapping: Exchange next and prev for each node
+Temporary Storage: Use temp variable for safe pointer swapping
+
+Why This Data Structure is Efficient
+-------------------------------------
+In-place Reversal: No extra space needed beyond input
+Single Traversal: Process each node exactly once
+Bidirectional Links: Can navigate in both directions after reversal
+
+Algorithm Approach
+-------------------
+Traverse list with current pointer
+For each node, swap its next and prev pointers using temp variable
+Move to next node (which is now prev due to swapping)
+Update head to point to new first node
+Return new head
+
+Time Complexity: O(n) - Visit each node once
+Space Complexity: O(1) - Only use temporary pointer variables
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Instructions to Run Code
+-----------------------------
+
+bashjavac filename.java
+java Solution < input.txt
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
