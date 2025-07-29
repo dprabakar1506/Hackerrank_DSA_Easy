@@ -1,0 +1,286 @@
+Week 4 - Java Programming Readme
+----------------------------------
+
+1. Simple Array Sum (simpleArraySum.java)
+-------------------------------------------
+
+Problem Description
+-------------------
+Calculate the sum of all integers in an array.
+
+Solution Overview
+-------------------
+We use Java streams to efficiently sum all elements in the array in a functional programming style.
+
+Data Structure Used
+-------------------
+List: Store array elements for processing
+Stream Processing: Use Java 8 streams for functional operations
+Reduction Operation: Sum all elements using built-in stream methods
+
+Why This Data Structure is Efficient
+-------------------------------------
+Built-in Optimization: Stream operations are optimized by JVM
+Readable Code: Functional approach is clean and concise
+Single Pass: Process each element exactly once
+
+Algorithm Approach
+-------------------
+Convert list to integer stream
+Use sum() method to reduce all elements
+Return the final sum
+
+Time Complexity: O(n) - Visit each element once
+Space Complexity: O(1) - Only store the sum
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Compare Triplets (compareTriplets.java)
+------------------------------------------
+Problem Description
+-------------------
+Compare two arrays of three integers each. Award points based on element-wise comparison and return both scores.
+
+Solution Overview
+-------------------
+We iterate through both arrays simultaneously, comparing corresponding elements and updating scores accordingly.
+
+Data Structure Used
+-------------------
+Parallel Array Processing: Compare elements at same indices
+Score Counters: Track points for each array
+Result List: Return both scores as a list
+
+Why This Data Structure is Efficient
+-------------------------------------
+Single Loop: Process all comparisons in one iteration
+Direct Indexing: Access elements by position efficiently
+Constant Space: Only store two score variables
+
+Algorithm Approach
+-------------------
+Initialize score counters for both arrays
+Loop through all three positions
+Compare elements at each position
+Increment appropriate score counter
+Return both scores as list
+
+Time Complexity: O(1) - Fixed three comparisons
+Space Complexity: O(1) - Only score variables
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. A Very Big Sum (aVeryBigSum.java)
+------------------------------------
+
+Problem Description
+-------------------
+Calculate the sum of very large integers that might exceed integer range, requiring long data type.
+
+Solution Overview
+-------------------
+We use long data type and stream processing to handle large numbers safely without overflow.
+
+Data Structure Used
+-------------------
+Long Data Type: Handle large integers beyond int range
+Stream Processing: Functional approach for summation
+Type Safety: Ensure no overflow during calculation
+
+Why This Data Structure is Efficient
+-------------------------------------
+Overflow Prevention: Long type prevents integer overflow
+Stream Optimization: Built-in stream operations are efficient
+Type Conversion: Safe conversion from Long objects to primitives
+
+Algorithm Approach
+-------------------
+Use long data type for all operations
+Convert Long objects to primitive long values
+Sum using stream reduction
+Return final long result
+
+Time Complexity: O(n) - Process each element once
+Space Complexity: O(1) - Only store the sum
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. Staircase (Staircase.java)
+-------------------------------
+
+Problem Description
+-------------------
+Print a staircase pattern of height n using spaces and hash symbols, right-aligned.
+
+Solution Overview
+-------------------
+We use nested loops to print the correct number of spaces followed by hash symbols for each row.
+
+Data Structure Used
+-------------------
+StringBuilder: Efficiently build each row string
+Nested Loops: Control spaces and hash symbols
+Pattern Generation: Mathematical relationship for spaces and symbols
+
+Why This Data Structure is Efficient
+-------------------------------------
+String Building: StringBuilder avoids string concatenation overhead
+Calculated Pattern: Direct mathematical approach, no storage needed
+Single Pass: Generate each row in one iteration
+
+Algorithm Approach
+-------------------
+For each row from 1 to n
+Add (n-i) spaces to StringBuilder
+Add i hash symbols to StringBuilder
+Print the completed row
+Clear StringBuilder for next row
+
+Time Complexity: O(n²) - Nested loops for n rows and n characters
+Space Complexity: O(n) - StringBuilder for one row
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5. Save the Prisoner (SaveThePrisoner.java)
+---------------------------------------------
+
+Problem Description
+-------------------
+Find which prisoner gets the last poisoned sweet when distributed in a circle, starting from a given position.
+
+Solution Overview
+-------------------
+We use modular arithmetic to directly calculate the final position without simulating the entire distribution process.
+
+Data Structure Used
+-------------------
+Modular Arithmetic: Handle circular arrangement efficiently
+Mathematical Formula: Direct calculation instead of simulation
+Integer Operations: Simple arithmetic operations
+
+Why This Data Structure is Efficient
+-------------------------------------
+Constant Time: No need to simulate the distribution
+Mathematical Insight: Formula handles circular nature elegantly
+No Extra Space: Only use variables for calculation
+
+Algorithm Approach
+-------------------
+Use formula: ((start + count - 2) % n) + 1
+Handle zero-based to one-based indexing conversion
+Modulo operation handles circular wraparound
+Return the final position
+
+Time Complexity: O(1) - Direct mathematical calculation
+Space Complexity: O(1) - Only arithmetic variables
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6. Ice Cream Parlor (IcecreamParlour.java)
+-------------------------------------------
+
+Problem Description
+-------------------
+Find two ice cream flavors whose costs sum exactly to the given money amount. Return their 1-based indices.
+
+Solution Overview
+-------------------
+We use a hash map to store costs and their indices, then look for complements that sum to the target amount.
+
+Data Structure Used
+-------------------
+HashMap: Store cost-to-index mapping for O(1) lookups
+Complement Search: For each cost, look for (target - cost)
+Two-Sum Pattern: Classic algorithm for finding pairs
+
+Why This Data Structure is Efficient
+--------------------------------------
+Constant Lookup: HashMap provides O(1) average lookup time
+Single Pass: Find solution in one iteration through array
+Space-Time Tradeoff: Use extra space for better time complexity
+
+Algorithm Approach
+-------------------
+Create HashMap to store cost -> index mapping
+For each ice cream cost
+Calculate complement (money - current cost)
+If complement exists in map, return both indices
+Otherwise, add current cost to map
+Continue until pair found
+
+Time Complexity: O(n) - Single pass through array
+Space Complexity: O(n) - HashMap storage
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+7. Birthday Cake Candles (BirthdayCakeCandles.java)
+-----------------------------------------------------
+
+Problem Description
+-------------------
+Count how many candles have the maximum height (only tallest candles can be blown out).
+
+Solution Overview
+-------------------
+We find the maximum height first, then count how many candles have that exact height.
+
+Data Structure Used
+-------------------
+Maximum Finding: Use Collections.max() for efficient maximum
+Counting Loop: Iterate to count occurrences
+Single Pass Counting: Count while iterating through array
+
+Why This Data Structure is Efficient
+-------------------------------------
+Built-in Maximum: Collections.max() is optimized
+Simple Counting: Straightforward iteration and comparison
+No Extra Storage: Only need counter variable
+
+Algorithm Approach
+-------------------
+Find maximum height using Collections.max()
+Initialize counter to zero
+Iterate through all candle heights
+Increment counter when height equals maximum
+Return final count
+
+Time Complexity: O(n) - One pass to find max, one to count
+Space Complexity: O(1) - Only counter and max variables
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+8. Apples and Oranges (Apples&Oranges.java)
+---------------------------------------------
+Problem Description
+-------------------
+Count how many apples and oranges fall within a house's range when thrown from trees at specific positions.
+
+Solution Overview
+-------------------
+We calculate the landing position of each fruit and check if it falls within the house boundaries.
+
+Data Structure Used
+-------------------
+Position Calculation: Add tree position to throwing distance
+Range Checking: Verify if position is within house boundaries
+Separate Counting: Count apples and oranges independently
+
+Why This Data Structure is Efficient
+-------------------------------------
+Direct Calculation: Simple arithmetic for position
+Single Pass: Process each fruit once
+No Extra Storage: Only need counters
+
+Algorithm Approach
+-------------------
+Initialize counters for apples and oranges
+For each apple distance, calculate landing position
+Check if position is within house range [s, t]
+Increment apple counter if within range
+Repeat process for oranges
+Print both counts
+
+Time Complexity: O(m + n) - Process all apples and oranges
+Space Complexity: O(1) - Only counter variables
+
+Instructions to run code:
+---------------------------
+javac filename.java
+java Solution < input.txt
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
